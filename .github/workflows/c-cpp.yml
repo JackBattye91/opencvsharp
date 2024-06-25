@@ -151,14 +151,14 @@ jobs:
           cd ${GITHUB_WORKSPACE}/opencvsharp
           sed -E --in-place=.bak \
             "s/<version>[0-9]\.[0-9]{1,2}\.[0-9]{1,2}.[0-9]{8}(-beta[0-9]*)?<\/version>/<version>${OPENCV_VERSION}.${yyyymmdd}${BETA}<\/version>/" \
-            nuget/OpenCvSharp4_.runtime.ubuntu.22.04-x64.nuspec
-          cat nuget/OpenCvSharp4_.runtime.ubuntu.22.04-x64.nuspec
-          dotnet pack nuget/OpenCvSharp4_.runtime.ubuntu.22.04-x64.csproj -o ${GITHUB_WORKSPACE}/artifacts_ubuntu
+            nuget/OpenCvSharp4_.runtime.ubuntu.24.04-x64.nuspec
+          cat nuget/OpenCvSharp4_.runtime.ubuntu.24.04-x64.nuspec
+          dotnet pack nuget/OpenCvSharp4_.runtime.ubuntu.24.04-x64.csproj -o ${GITHUB_WORKSPACE}/artifacts_ubuntu
           ls ${GITHUB_WORKSPACE}/artifacts_ubuntu
 
       - uses: actions/upload-artifact@v4
         with:
-          name: artifacts_ubuntu_22
+          name: artifacts_ubuntu_24
           path: artifacts_ubuntu
         
       - name: Test
